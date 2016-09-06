@@ -8,12 +8,9 @@
 <div ng-show="weather">
     <table>
         <tr>
-            <td>{{weather.RegionalFcst.issuedAt | date:'medium'}}</td>
+            <td></td><td>{{weather.RegionalFcst.issuedAt | date:'medium'}}</td>
         </tr>
-        <tr>
-            <td>{{weather.RegionalFcst.FcstPeriods.id}}</td>
-        </tr>
-
+        
         <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
             <td>{{period.Paragraph[0].title}}</td>
             <td>{{period.Paragraph[0].$}}</td>
