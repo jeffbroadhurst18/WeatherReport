@@ -24,7 +24,7 @@
     };
 
     var module = angular.module("weatherReportApp");
-    //Register the github service with the main module
+    //Register the weatherhub service with the main module
     module.factory("weatherhub", weatherhub);
 
 }());
