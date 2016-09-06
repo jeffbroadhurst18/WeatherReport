@@ -1,0 +1,36 @@
+﻿<div>
+    <label for="selectLocation">Select location:</label>
+    <select id="selectLocation" ng-model="selectedLocation">
+        <option ng-repeat="loc in locations" value="{{loc['@id']}}">{{loc['@fullname']}}</option>
+    </select><br /><br />
+    <button id="secondBtn" ng-click="getWeather()">Show Weather</button><br />
+</div><br />
+<div ng-show="weather">
+    <table>
+        <tr>
+            <td>{{weather.RegionalFcst.issuedAt | date:'medium'}}</td>
+        </tr>
+        <tr>
+            <td>{{weather.RegionalFcst.FcstPeriods.id}}</td>
+        </tr>
+
+        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+            <td>{{period.Paragraph[0].title}}</td>
+            <td>{{period.Paragraph[0].$}}</td>
+        </tr>
+
+        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+            <td>{{period.Paragraph[1].title}}</td>
+            <td>{{period.Paragraph[1].$}}</td>
+            </tr>
+        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+            <td>{{period.Paragraph[2].title}}</td>
+            <td>{{period.Paragraph[2].$}}</td>
+        </tr>
+        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="!$first">
+            <td>{{period.Paragraph.title}}</td>
+            <td>{{period.Paragraph.$}}</td>
+        </tr>
+    </table>
+
+</div>
