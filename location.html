@@ -3,6 +3,9 @@
     <select ng-model="selectedLocation" ng-options="x['@fullname'] for x in locations"></select><br /><br />
     <button id="secondBtn" ng-click="getWeather()">Show Weather</button><br />
 </div><br />
+<p>
+    <input type="checkbox" ng-model="longrange" />Show long range forecast
+</p>
 <div ng-show="weather">
     <table>
         <tr>
@@ -22,7 +25,7 @@
             <td>{{period.Paragraph[2].title}}</td>
             <td>{{period.Paragraph[2].$}}</td>
         </tr>
-        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="!$first">
+        <tr ng-show="longrange" ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="!$first">
             <td>{{period.Paragraph.title}}</td>
             <td>{{period.Paragraph.$}}</td>
         </tr>
