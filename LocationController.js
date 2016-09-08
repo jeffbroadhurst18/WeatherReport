@@ -41,7 +41,7 @@
         };
 
         $scope.getWeather = function () {
-            weatherhub.getWeather($scope.selectedLocation).then(onGetWeatherComplete, onError);
+            weatherhub.getWeather($scope.selectedLocation['@id']).then(onGetWeatherComplete, onError);
         };
 
         var onGetWeatherComplete = function (data) {
