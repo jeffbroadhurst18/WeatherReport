@@ -1,7 +1,7 @@
 ﻿<div>
     <label for="selectLocation">Select location:</label>
     <select ng-model="selectedLocation" ng-options="x['@fullname'] for x in locations"></select><br /><br />
-    <button id="secondBtn" ng-click="getWeather()">Show Weather</button><br />
+    <button id="secondBtn" ng-disabled="!selectedLocation" ng-click="getWeather()">Show Weather</button><br />
 </div><br />
 <p>
     <input type="checkbox" ng-model="longrange" />Show long range forecast
