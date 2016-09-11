@@ -1,0 +1,14 @@
+﻿<h1>Shopping Basket</h1><br /><br/>
+<table>
+    <tr ng-repeat="item in shoppingItems">
+        <td>{{item}}</td>
+        <td><button ng-click="removeItem($index)">Remove</button></td>
+    </tr>
+</table>
+
+<form name="addNewItem" ng-submit="addItem(newItem)">
+    <input type="search" required="" placeholder="New Item" ng-model="newItem" />
+    <input type="submit" value="Add" />
+</form>
+
+<div ng-show="errorMessage">{{errorMessage}}</div>

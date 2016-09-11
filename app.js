@@ -7,9 +7,9 @@
         .when("/location", {
             templateUrl: "location.html",
             controller: "LocationController"
-        }).when("/report", {
-            tempateUrl: "report.html",
-            controller: "ReportController"
-        }).otherwise({ redirectTo: "/location" });
+        }).when("/shopping", {
+            templateUrl: "shopping.html",
+            controller: "ShoppingController"
+        }).otherwise({ redirectTo: "/shopping" });
     });
 }());
