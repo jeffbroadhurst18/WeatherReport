@@ -10,6 +10,9 @@
         }).when("/shopping", {
             templateUrl: "shopping.html",
             controller: "ShoppingController"
-        }).otherwise({ redirectTo: "/shopping" });
+        }).when("/currency", {
+            templateUrl: "currency.html",
+            controller: "CurrencyController"
+        }).otherwise({ redirectTo: "/currency" });
     });
 }());

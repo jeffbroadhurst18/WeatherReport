@@ -26,3 +26,12 @@ table tr:nth-child(even) {
 }
 h1 {color:blue}
 h2{color:yellowgreen}
+
+.checklabel{
+    width:50px;
+    float:left;
+}
+
+.buttonDiv{
+    float:left;
+}
