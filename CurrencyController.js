@@ -9,23 +9,32 @@
         };
 
         $scope.getRates = function () {
-            currencyhub.getRates($scope.checkboxModel).then(onGetRatesComplete, onError);
+            currencyhub.getUSRates($scope.checkboxModel).then(onGetRatesComplete, onError);
+            $scope.disableChecks = true;
         };
 
         $scope.clearSelection = function () {
             $scope.checkboxModel = { AUD: false, EUR: false, GBP: false, PLN: false };
             $scope.quotes = null;
+            $scope.disableChecks = null;
         }
 
         var onGetRatesComplete = function (data) {
             $scope.requestDate = timeConverter(data.timestamp);
-            $scope.quotes = data.quotes;
-            var x = $scope.checkboxModel;
+            $scope.checkboxModel = data.checked;
         };
 
-        $scope.checkboxModel = { AUD: false, EUR: false, GBP: false, PLN: false };
+        $scope.setupCheckboxes = function (selectedCurrency) {
+            $scope.checkboxModel = currencyhub.getCheckboxes(selectedCurrency);
+        }
+
+        $scope.sourceCountries = [{ code: "USD", currency: "US Dollar" }, { code: "GBP", currency: "Sterling" }];
         
-    };
+        var initialCountry = $scope.sourceCountries[1];
+        $scope.selectedCurrency = initialCountry;
+        $scope.checkboxModel = currencyhub.getCheckboxes(initialCountry);
+        var x = 2;
+    }; 
 
     app.controller("CurrencyController", CurrencyController);
 
