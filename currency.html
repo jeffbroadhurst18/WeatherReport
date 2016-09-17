@@ -1,0 +1,58 @@
+﻿<form name="currencyForm">
+    <div class="buttonDiv">
+        <label for="seondBtn">Get USD Exchange Rates</label>
+        <button id="secondBtn" ng-click="getRates()">Get Rates</button><br />
+    </div>
+    <button id="thirdBtn" ng-click="clearSelection()">Clear</button><br />
+    <br />
+    <div class="checklabel">
+        AUD:
+    </div><input type="checkbox" ng-model="checkboxModel.AUD">
+    <br />
+    <div class="checklabel">
+        EUR:
+    </div>
+        <input type="checkbox" ng-model="checkboxModel.EUR">
+    <br />
+    <div class="checklabel">
+        GBP:
+    </div>
+        <input type="checkbox" ng-model="checkboxModel.GBP">
+    <br />
+    <div class="checklabel">
+        PLN:
+    </div>
+        <input type="checkbox" ng-model="checkboxModel.PLN">
+    <br />
+    <!--<tt>value1 = {{checkboxModel.AUD}}</tt><br />
+    <tt>value2 = {{checkboxModel.EUR}}</tt><br />
+    <tt>value2 = {{checkboxModel.GBP}}</tt><br />
+    <tt>value2 = {{checkboxModel.PLN}}</tt><br />-->
+    <br/>
+
+    <div ng-show="quotes">
+        <h3>Date: {{requestDate}}</h3>
+        <table>
+            <tr><th>Currency</th><th>Rate</th></tr>
+            <tr ng-if="checkboxModel.AUD">
+                <td>AUD</td>
+                <td>{{quotes["USDAUD"] | number : 2}}</td>
+            </tr>
+            <tr ng-if="checkboxModel.EUR">
+                <td>EUR</td>
+                <td>{{quotes["USDEUR"] | number: 2}}</td>
+            </tr>
+            <tr ng-if="checkboxModel.GBP">
+                <td>GBP</td>
+                <td>{{quotes["USDGBP"] | number : 2}}</td>
+            </tr>
+            <tr ng-if="checkboxModel.PLN">
+                <td>PLN</td>
+                <td>{{quotes["USDPLN"] | number : 2}}</td>
+            </tr>
+
+
+        </table>
+
+    </div>
+</form>

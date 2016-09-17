@@ -1,0 +1,37 @@
+﻿body {
+}
+
+.red {
+    background-color:red;
+}
+
+.blue {
+    background-color:blue;
+}
+
+.green {
+    background-color:green;
+}
+
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+h1 {color:blue}
+h2{color:yellowgreen}
+
+.checklabel{
+    width:50px;
+    float:left;
+}
+
+.buttonDiv{
+    float:left;
+}
