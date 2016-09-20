@@ -1,6 +1,6 @@
 ﻿<label for="pickCountry">Select Currency: </label>
-<select id="pickCountry" ng-model="selectedCurrency" ng-options="x.currency for x in sourceCountries" ng-change="setupCheckboxes(selectedCurrency)">
-</select>
+<select id="pickCountry" ng-model="selectedCurrency" ng-options="x.currency for x in sourceCurrencies" ng-change="setupCheckboxes(selectedCurrency)">
+</select><br/><br/>
 
 <form name="currencyForm">
     <div class="buttonDiv">
@@ -32,32 +32,14 @@
     </div>
      <br/>
 
-    <div>
+    <div ng-show="requestDate">
         <h3>Date: {{requestDate}}</h3>
         <table>
             <tr><th>Currency</th><th>Rate</th></tr>
-            <tr ng-repeat="check in checkboxModel" ng-if:"checkboxModel.value>
+            <tr ng-repeat="check in checkboxModel" ng-if="check.rate > 0">
                 <td>{{check.code}}</td>
-                <td>{{check.rate}}</td>
+                <td>{{check.rate | number : 2}} </td>
             </tr>
-            <!--<tr ng-if="checkboxModel.AUD">
-                <td>AUD</td>
-                <td>{{quotes["USDAUD"] | number : 2}}</td>
-            </tr>
-            <tr ng-if="checkboxModel.EUR">
-                <td>EUR</td>
-                <td>{{quotes["USDEUR"] | number: 2}}</td>
-            </tr>
-            <tr ng-if="checkboxModel.GBP">
-                <td>GBP</td>
-                <td>{{quotes["USDGBP"] | number : 2}}</td>
-            </tr>
-            <tr ng-if="checkboxModel.PLN">
-                <td>PLN</td>
-                <td>{{quotes["USDPLN"] | number : 2}}</td>
-            </tr>-->
-
-
         </table>
 
     </div>

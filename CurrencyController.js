@@ -9,14 +9,19 @@
         };
 
         $scope.getRates = function () {
-            currencyhub.getUSRates($scope.checkboxModel).then(onGetRatesComplete, onError);
+            if ($scope.selectedCurrency.code == "USD") {
+                currencyhub.getUSRates($scope.checkboxModel).then(onGetRatesComplete, onError);
+            }
+            else
+            {
+                currencyhub.getGBRates($scope.checkboxModel).then(onGetRatesComplete, onError);
+            }
+
             $scope.disableChecks = true;
         };
 
         $scope.clearSelection = function () {
-            $scope.checkboxModel = { AUD: false, EUR: false, GBP: false, PLN: false };
-            $scope.quotes = null;
-            $scope.disableChecks = null;
+            setupNew();
         }
 
         var onGetRatesComplete = function (data) {
@@ -26,14 +31,23 @@
 
         $scope.setupCheckboxes = function (selectedCurrency) {
             $scope.checkboxModel = currencyhub.getCheckboxes(selectedCurrency);
+            $scope.requestDate = null;
+            $scope.disableChecks = false;
         }
 
-        $scope.sourceCountries = [{ code: "USD", currency: "US Dollar" }, { code: "GBP", currency: "Sterling" }];
+        function setupNew() {
+            $scope.requestDate = null;
+            var initialCountry = $scope.sourceCurrencies[1];
+            $scope.selectedCurrency = initialCountry;
+            $scope.checkboxModel = currencyhub.getCheckboxes(initialCountry);
+            $scope.disableChecks = false;
+        }
+
+        $scope.sourceCurrencies = [{ code: "USD", currency: "US Dollar" }, { code: "GBP", currency: "Sterling" }];
+        setupNew();
         
-        var initialCountry = $scope.sourceCountries[1];
-        $scope.selectedCurrency = initialCountry;
-        $scope.checkboxModel = currencyhub.getCheckboxes(initialCountry);
-        var x = 2;
+        
+
     }; 
 
     app.controller("CurrencyController", CurrencyController);

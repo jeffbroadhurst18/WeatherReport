@@ -17,7 +17,22 @@
                  });
         };
 
-        //var getGBRates = function
+        var getGBRates = function (checked) {
+            var currencyString = getCurrenciesToReturn(checked);
+            return $http.get("http://apilayer.net/api/live?access_key=66f7f5aaddffd781f21e5e4863e21eec&currencies=" + currencyString + ",GBP")
+                 .then(function (response) {
+                     for (var i = 0; i < checked.length; i++) {
+                         if (checked[i].value && checked[i].code != "GBP" && checked[i].code != "USD") {
+                             checked[i].rate = response.data.quotes["USD" + checked[i].code] / response.data.quotes["USDGBP"];
+                         }
+                         if (checked[i].code == "USD" && checked[i].value) {
+                             checked[i].rate = 1 / response.data.quotes["USDGBP"];
+                         }
+                     }
+
+                     return { checked: checked, timestamp: response.data.timestamp };
+                 });
+        };
 
         var getCheckboxes = function (selectedCurrency) {
             if (selectedCurrency.code == "USD") {
@@ -30,6 +45,7 @@
 
         return {
             getUSRates: getUSRates,
+            getGBRates: getGBRates,
             getCheckboxes: getCheckboxes
         };
 
