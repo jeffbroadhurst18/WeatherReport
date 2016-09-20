@@ -12,7 +12,7 @@
                                 { short: 'gr', long: 'Grampian' },
                                 { short: 'ta', long: 'Tayside' },
                                 { short: 'st', long: 'Strathclyde' },
-                                { short: 'dg', long: 'Dumfries, Glloway, Lothian' },
+                                { short: 'dg', long: 'Dumfries, Galloway, Lothian' },
                                 { short: 'ni', long: 'Northern Ireland' },
                                 { short: 'yh', long: 'Yorkshire & the Humber' },
                                 { short: 'ne', long: 'Northeast England' },

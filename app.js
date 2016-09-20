@@ -6,13 +6,13 @@
         function ($routeProvider,$httpProvider) {
             $routeProvider
             .when("/location", {
-                templateUrl: "location.html",
+                templateUrl: "Weather/location.html",
                 controller: "LocationController"
             }).when("/shopping", {
-                templateUrl: "shopping.html",
+                templateUrl: "Shopping/shopping.html",
                 controller: "ShoppingController"
             }).when("/currency", {
-                templateUrl: "currency.html",
+                templateUrl: "Currency/currency.html",
                 controller: "CurrencyController"
             }).otherwise({ redirectTo: "/currency" });
             //$httpProvider.defaults.useXDomain = true;

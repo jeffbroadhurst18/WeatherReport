@@ -35,7 +35,7 @@
             $scope.disableChecks = false;
         }
 
-        function setupNew() {
+        var setupNew = function () {
             $scope.requestDate = null;
             var initialCountry = $scope.sourceCurrencies[1];
             $scope.selectedCurrency = initialCountry;

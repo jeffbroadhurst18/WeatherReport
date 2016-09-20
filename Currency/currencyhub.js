@@ -57,7 +57,7 @@
 
 }());
 
-function getCurrenciesToReturn(checked) {
+var getCurrenciesToReturn = function(checked) {
     var returnString = "";
     for (var i = 0; i < checked.length ; i++) {
         if (checked[i].value) {
