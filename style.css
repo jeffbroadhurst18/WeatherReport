@@ -39,3 +39,63 @@ h2{color:yellowgreen}
 .mainPage{
     background-color:lightblue;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+#timer{
+    float:right;
+    padding-right:100px;
+}
+
+#countryPicker{
+    float:left;
+}
+
+#subPage{
+    float:left;
+    margin-top:50px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+#weather{
+    float:left;
+}
+
+.currentPicture{
+    float:right;
+    clear:left;
+}
+
+#nextBtn{
+        clear:right;
+}

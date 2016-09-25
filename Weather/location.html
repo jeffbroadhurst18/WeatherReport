@@ -1,34 +1,37 @@
 ﻿<div>
-    <label for="selectLocation">Select location:</label>
-    <select ng-model="selectedLocation" ng-options="x['@fullname'] for x in locations"></select><br /><br />
-    <button id="secondBtn" ng-disabled="!selectedLocation" ng-click="getWeather()">Show Weather</button><br />
-</div><br />
-<p>
-    <input type="checkbox" ng-model="longrange" />Show long range forecast
-</p>
-<div ng-show="weather">
-    <table>
-        <tr>
-            <td></td><td>{{weather.RegionalFcst.issuedAt | date:'medium'}}</td>
-        </tr>
-        
-        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
-            <td>{{period.Paragraph[0].title}}</td>
-            <td>{{period.Paragraph[0].$}}</td>
-        </tr>
-
-        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
-            <td>{{period.Paragraph[1].title}}</td>
-            <td>{{period.Paragraph[1].$}}</td>
+    <div id="weather">
+        <label for="selectLocation">Select location:</label>
+        <select ng-model="selectedLocation" ng-options="x['@fullname'] for x in locations"></select><br /><br />
+        <button id="secondBtn" ng-disabled="!selectedLocation" ng-click="getWeather()">Show Weather</button><br />
+    </div><br />
+    <p>
+        <input type="checkbox" ng-model="longrange" />Show long range forecast
+    </p>
+    <div ng-show="weather">
+        <table>
+            <tr>
+                <td></td>
+                <td>{{weather.RegionalFcst.issuedAt | date:'medium'}}</td>
             </tr>
-        <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
-            <td>{{period.Paragraph[2].title}}</td>
-            <td>{{period.Paragraph[2].$}}</td>
-        </tr>
-        <tr ng-show="longrange" ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="!$first">
-            <td>{{period.Paragraph.title}}</td>
-            <td>{{period.Paragraph.$}}</td>
-        </tr>
-    </table>
 
+            <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+                <td>{{period.Paragraph[0].title}}</td>
+                <td>{{period.Paragraph[0].$}}</td>
+            </tr>
+
+            <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+                <td>{{period.Paragraph[1].title}}</td>
+                <td>{{period.Paragraph[1].$}}</td>
+            </tr>
+            <tr ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="$first">
+                <td>{{period.Paragraph[2].title}}</td>
+                <td>{{period.Paragraph[2].$}}</td>
+            </tr>
+            <tr ng-show="longrange" ng-repeat="period in weather.RegionalFcst.FcstPeriods.Period" ng-if="!$first">
+                <td>{{period.Paragraph.title}}</td>
+                <td>{{period.Paragraph.$}}</td>
+            </tr>
+        </table>
+
+    </div>
 </div>

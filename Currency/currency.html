@@ -1,6 +1,8 @@
-﻿<label for="pickCountry">Select Currency: </label>
-<select id="pickCountry" ng-model="selectedCurrency" ng-options="x.currency for x in sourceCurrencies" ng-change="setupCheckboxes(selectedCurrency)">
-</select><br/><br/>
+﻿<div id="countryPicker">
+    <label for="pickCountry">Select Currency: </label>
+    <select id="pickCountry" ng-model="selectedCurrency" ng-options="x.currency for x in sourceCurrencies" ng-change="setupCheckboxes(selectedCurrency)"></select>
+</div>
+<br/><br/>
 
 <form name="currencyForm">
     <div class="buttonDiv">

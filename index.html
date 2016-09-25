@@ -10,16 +10,22 @@
     <script src="Weather/LocationController.js"></script>
     <script src="Shopping/ShoppingController.js"></script>
     <script src="Currency/CurrencyController.js"></script>
+    <script src="Timer/TimerController.js"></script>
 </head>
 
 <body class="mainPage">
-    <h1>General Application</h1>
-    <h2>by Jeff</h2>
-    <div><a href="#/location">Weather App</a></div>
-    <div><a href="#/shopping">Shopping App</a></div>
-    <div><a href="#/currency">Currency App</a></div>
-    <br/><br/>
-    <div ng-view></div>
+    <div>
+        <h1>General Application</h1>
+        <h2>by Jeff</h2>
+        <ul id="menu">
+            <li><a href="#/location">Weather App</a></li>
+            <li><a href="#/shopping">Shopping App</a></li>
+            <li><a href="#/currency">Currency App</a></li>
+        </ul>
+        <div ng-include="'Timer/timer.html'"></div>
+     </div>
+    <div id="subPage" ng-view></div>
+
 </body>
 
 </html>
