@@ -1,0 +1,16 @@
+﻿<ul id="cardsMenu">
+    <li><button class="cardsButton" ng-click="generateOrSort()">Generate/Sort</button></li>
+    <li><button class="cardsButton" ng-click="shuffle()" ng-show="cardList">Shuffle</button></li>
+</ul>
+<br/>
+<table id="cardsTable" ng-show="cardList">
+    <tr><th>Suit</th><th>Card</th></tr>
+    <tr ng-repeat="singleCard in cardList">
+        <td class="cardCell">
+            {{singleCard.Suit}}
+        </td>
+        <td class="cardCell">
+            {{singleCard.Value}}
+        </td>
+    </tr>
+</table>

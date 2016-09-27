@@ -60,6 +60,19 @@ li a {
     text-decoration: none;
 }
 
+#cardsMenu{
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color:lightblue;
+}
+
+.cardsButton{
+    width:150px;
+    margin-left:50px;
+    text-align:center;
+}
 
 #timer{
     float:right;
@@ -98,4 +111,14 @@ img {
 
 #nextBtn{
         clear:right;
+}
+
+#cardsTable{
+    margin-left:65px;
+    font-size:11px;
+}
+
+.cardCell{
+    width:60px;
+    text-align:center;
 }
